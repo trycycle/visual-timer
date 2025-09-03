@@ -1,0 +1,224 @@
+body {
+  margin: 0;
+  background-color: #111;
+  /* font-family: 'DotGothic16', sans-serif; */
+  overflow: hidden;
+}
+#tiles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+.tile {
+  background-color: #333; /* Elapsed color */
+  box-sizing: border-box;
+}
+.tile.lime {
+  background-color: lime;
+}
+.ui-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    pointer-events: none; /* Allow clicks to pass through */
+}
+body {
+  margin: 0;
+  background-color: #111;
+  overflow: hidden;
+}
+#tiles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+.tile {
+  background-color: #333; /* Elapsed color */
+  box-sizing: border-box;
+}
+.tile.lime {
+  background-color: lime;
+}
+.ui-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    pointer-events: none; /* Allow clicks to pass through */
+}
+#timer {
+  font-family: 'Doto', sans-serif;
+  font-size: 14rem;
+  font-weight: 900;
+  text-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+#toggle-menu-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    pointer-events: auto; /* Enable clicks for the menu */
+}
+
+#toggle-button {
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+}
+
+#menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    width: 220px;
+}
+
+#menu.show {
+    display: block;
+}
+
+#menu .time-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#menu input {
+    font-size: 1rem;
+    padding: 8px;
+    width: 60px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: rgba(0,0,0,0.2);
+    color: white;
+}
+
+#menu button {
+    font-size: 1rem;
+    padding: 8px 12px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#menu .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#menu button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+#toggle-menu-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    pointer-events: auto; /* Enable clicks for the menu */
+}
+
+#toggle-button {
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+}
+
+#menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    width: 220px;
+}
+
+#menu.show {
+    display: block;
+}
+
+#menu .time-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#menu input {
+    /* font-family: 'DotGothic16', sans-serif; */
+    font-size: 1rem;
+    padding: 8px;
+    width: 60px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: rgba(0,0,0,0.2);
+    color: white;
+}
+
+#menu button {
+    /* font-family: 'DotGothic16', sans-serif; */
+    font-size: 1rem;
+    padding: 8px 12px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#menu .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#menu button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
