@@ -11,9 +11,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  /* Add the following to prevent gaps */
+  display: grid;
   overflow: hidden;
 }
 
@@ -42,7 +40,7 @@ body {
 }
 #timer {
   font-family: 'Doto', sans-serif;
-  font-size: 14rem;
+  font-size: 20vw;
   font-weight: 900;
   text-shadow: 0 0 10px rgba(0,0,0,0.8);
 }

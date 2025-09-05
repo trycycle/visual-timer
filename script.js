@@ -45,36 +45,20 @@ function calculateLayout() {
 
 function resizeTiles() {
     if (TOTAL_SECONDS === 0) return;
+
+    const vh = window.innerHeight;
+    tilesContainer.style.height = `${vh}px`;
+    document.querySelector('.ui-container').style.height = `${vh}px`;
+
     const layout = calculateLayout();
-    const numCols = layout.w;
-    const numRows = layout.h;
+    tilesContainer.style.gridTemplateColumns = `repeat(${layout.w}, 1fr)`;
+    tilesContainer.style.gridTemplateRows = `repeat(${layout.h}, 1fr)`;
 
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
-
-    const baseTileWidth = Math.floor(screenWidth / numCols);
-    const extraWidth = screenWidth % numCols;
-
-    const baseTileHeight = Math.floor(screenHeight / numRows);
-    const extraHeight = screenHeight % numRows;
-
+    // Remove individual tile styling
     const tiles = tilesContainer.children;
-    let tileIndex = 0;
-
-    for (let i = 0; i < numRows; i++) {
-        for (let j = 0; j < numCols; j++) {
-            if (tileIndex >= tiles.length) break;
-            
-            const tile = tiles[tileIndex];
-            
-            const tileWidth = baseTileWidth + (j < extraWidth ? 1 : 0);
-            const tileHeight = baseTileHeight + (i < extraHeight ? 1 : 0);
-
-            tile.style.width = `${tileWidth}px`;
-            tile.style.height = `${tileHeight}px`;
-            
-            tileIndex++;
-        }
+    for (const tile of tiles) {
+        tile.style.width = '';
+        tile.style.height = '';
     }
 }
 
@@ -138,6 +122,7 @@ function resetTimer(enableControls = true) {
   timeLeft = TOTAL_SECONDS;
   updateDigitalClock();
   updateTiles();
+  resizeTiles();
   if (enableControls) {
     startButton.disabled = false;
     stopButton.disabled = true;
@@ -152,7 +137,6 @@ function setNewTime() {
         TOTAL_SECONDS = minutes * 60;
         createTiles();
         resetTimer();
-        resizeTiles();
         //menu.classList.remove('show');
     } else if (!minutesInput.value) {
         // Do nothing if input is empty
