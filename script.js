@@ -46,12 +46,35 @@ function calculateLayout() {
 function resizeTiles() {
     if (TOTAL_SECONDS === 0) return;
     const layout = calculateLayout();
-    const tileWidth = window.innerWidth / layout.w;
-    const tileHeight = window.innerHeight / layout.h;
+    const numCols = layout.w;
+    const numRows = layout.h;
+
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    const baseTileWidth = Math.floor(screenWidth / numCols);
+    const extraWidth = screenWidth % numCols;
+
+    const baseTileHeight = Math.floor(screenHeight / numRows);
+    const extraHeight = screenHeight % numRows;
+
     const tiles = tilesContainer.children;
-    for (const tile of tiles) {
-        tile.style.width = `${tileWidth}px`;
-        tile.style.height = `${tileHeight}px`;
+    let tileIndex = 0;
+
+    for (let i = 0; i < numRows; i++) {
+        for (let j = 0; j < numCols; j++) {
+            if (tileIndex >= tiles.length) break;
+            
+            const tile = tiles[tileIndex];
+            
+            const tileWidth = baseTileWidth + (j < extraWidth ? 1 : 0);
+            const tileHeight = baseTileHeight + (i < extraHeight ? 1 : 0);
+
+            tile.style.width = `${tileWidth}px`;
+            tile.style.height = `${tileHeight}px`;
+            
+            tileIndex++;
+        }
     }
 }
 
