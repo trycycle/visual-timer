@@ -1,7 +1,19 @@
+:root {
+  --bg-color: #111;
+  --tile-elapsed-color: #333;
+  --tile-active-color: lime;
+  --text-color: white;
+  --menu-bg-color: rgba(0, 0, 0, 0.8);
+  --menu-border-color: #555;
+  --button-bg-color: rgba(255, 255, 255, 0.1);
+  --button-border-color: white;
+  --font-family: 'Doto', sans-serif;
+}
+
 body {
   margin: 0;
-  background-color: #111;
-  /* font-family: 'DotGothic16', sans-serif; */
+  background-color: var(--bg-color);
+  font-family: var(--font-family);
   overflow: hidden; /* Prevent scrollbars */
 }
 
@@ -16,107 +28,107 @@ body {
 }
 
 .tile {
-  background-color: #333; /* Elapsed color */
+  background-color: var(--tile-elapsed-color);
   box-sizing: border-box;
 }
 
 .tile.lime {
-  background-color: lime;
+  background-color: var(--tile-active-color);
 }
 
 .ui-container {
-    position: absolute; /* Changed from relative */
-    top: 0;
-    left: 0;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw; /* Changed from 100% */
-    height: 100vh;
-    color: white;
-    pointer-events: none; /* Allow clicks to pass through */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  color: var(--text-color);
+  pointer-events: none;
 }
+
 #timer {
-  font-family: 'Doto', sans-serif;
   font-size: 20vw;
   font-weight: 900;
-  text-shadow: 0 0 10px rgba(0,0,0,0.8);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 #toggle-menu-container {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 2;
-    pointer-events: auto; /* Enable clicks for the menu */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  pointer-events: auto;
 }
 
 #toggle-button {
-    font-size: 1.5rem;
-    padding: 5px 10px;
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: 1px solid white;
-    color: white;
-    border-radius: 5px;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--button-border-color);
+  color: var(--text-color);
+  border-radius: 5px;
 }
 
 #menu {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 45px;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 15px;
-    border-radius: 5px;
-    border: 1px solid #555;
-    width: 220px;
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 45px;
+  background-color: var(--menu-bg-color);
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid var(--menu-border-color);
+  width: 220px;
 }
 
 #menu.show {
-    display: block;
+  display: block;
 }
 
 #menu .time-input {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 #menu input {
-    font-size: 1rem;
-    padding: 8px;
-    width: 60px;
-    text-align: center;
-    border-radius: 5px;
-    border: 1px solid white;
-    background-color: rgba(0,0,0,0.2);
-    color: white;
+  font-size: 1rem;
+  padding: 8px;
+  width: 60px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid var(--button-border-color);
+  background-color: rgba(0, 0, 0, 0.2);
+  color: var(--text-color);
 }
 
 #menu button {
-    font-size: 1rem;
-    padding: 8px 12px;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid white;
-    color: white;
-    border-radius: 5px;
-    width: 100%;
+  font-size: 1rem;
+  padding: 8px 12px;
+  cursor: pointer;
+  background-color: var(--button-bg-color);
+  border: 1px solid var(--button-border-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  width: 100%;
 }
 
 #menu .buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 #menu button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 #version-info {
@@ -124,9 +136,6 @@ body {
   bottom: 5px;
   right: 5px;
   font-size: 12px;
-  color: white;
+  color: var(--text-color);
   z-index: 10;
 }
-
-
-
