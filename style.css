@@ -121,5 +121,14 @@ body {
     cursor: not-allowed;
 }
 
+#version-info {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 12px;
+  color: white;
+  z-index: 10;
+}
+
 
 
